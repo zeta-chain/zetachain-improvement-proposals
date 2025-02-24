@@ -29,7 +29,7 @@ contracts on Solana and TON), it's lacking in the following important aspects:
    at more or less the same time, and each round comes with a timeout. Not sufficiently
    synchronized keysign not only causes failure; it consumes more resources like
    p2p streams for longer, and might cause cascading failures. This poses some
-3. GG20 ECDSA keysign failure is hard and expensive to pinpoint and reach
+3. GG20 ECDSA keysign failure attribution is hard and expensive to pinpoint and reach
    consensus on, which hinders on-chain automatic incentives required for
    permisssionless participation. 
    
