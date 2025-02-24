@@ -69,7 +69,7 @@ When a composition of signers set changes they must regenerate a new
 keyshare and get rid of the old ones. It would be advantageous to re-share
 the collective "secret" into a new set of keyshared (of course doing so
 in distributed way without any single point in time where the secret is
-in one party's hand).  Reshare maintains the same secret key and therefore
+in one party's hand).  Reshare maintains the same collective secret key and therefore
 the same public key and address on external chains, reducing risks in potential
 migrations which is necessary for a new keygen. 
 
