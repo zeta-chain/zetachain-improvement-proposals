@@ -123,9 +123,12 @@ is the simplest MPC without any complicated zk-proofs.
 
 
 ### Verification Costs
-On EVM, a verification could cost around 110K gas including hash and pairing. 
+On EVM, a verification could cost around 110K gas including hash and pairing on BN254 curve. 
+On BLS120381 (part of Ethereum Pectra upgrade) it remains to be tested but could be
+smaller gas cost. 
 
-On Solana, around 100K CU (PoC) or less (can be further optimized) for verification. 
+On Solana, around 100K CU (PoC) or less (can be further optimized) for verification. There is
+room for further reduction but 100K CU is quite acceptable. 
 
 On SUI, cost is very low as the whole verificaiton is implemented natively. 
 
