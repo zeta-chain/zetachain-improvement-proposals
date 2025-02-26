@@ -77,7 +77,7 @@ migrations which is necessary for a new keygen.
 The threshold BLS signature works the same regardless of which EC curve
 it's operating on. Currently there are two popular choices, BN254 and BLS12-381
 curve. The former is older with about 100 bits security entropy while the latter
-is 128bits. The former is the one that zk-SNARKS Groth16 scheme uses. 
+is 128bits. The former is the one that zk-SNARKS Groth16 scheme often uses. 
 
 On EVM chains the older BN254 (also called alt_bn128) curve must be used as
 it's the only one that's currently efficiently supported via precompiles. 
