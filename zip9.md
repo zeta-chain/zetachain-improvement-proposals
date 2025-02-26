@@ -79,10 +79,11 @@ it's operating on. Currently there are two popular choices, BN254 and BLS12-381
 curve. The former is older with about 100 bits security entropy while the latter
 is 128bits. The former is the one that zk-SNARKS Groth16 scheme often uses. 
 
-On EVM chains the older BN254 (also called alt_bn128) curve must be used as
+On EVM chains (except Ethereum) the older BN254 (also called alt_bn128) curve must be used as
 it's the only one that's currently efficiently supported via precompiles. 
-New upgrade Pectra (expected on mainnet on Mar 2025) includes precompiles
-support for BLS12-381 and its standard hash to curve. 
+
+New Ethereum upgrade Pectra (expected on mainnet on Mar 2025) includes precompiles
+support for BLS12-381 and its standard hash to curve. Other EVM chains might follow. 
 
 On Solana the BN254 curve must be used as it's efficiently supported via syscall. 
 
