@@ -118,7 +118,14 @@ of risks and signer activities when signers set changes. The downside is that
 using a BN254 key loses about 1 bit of entropy on BLS12-381 curve which is not
 significant. 
 
+### Signature in G1
+BLS signature can be on either the G1 or G2, resulting in two flavors: 
 
+- Signature on G1, Public Key on G2
+- Signature on G2, Public Key on G1
+
+As G1 is smaller than G2, and we store and process signatures much more than public
+key, the first scheme (signature on G1) is recommended in this ZIP. 
 
 ## Rationale 
 ### Why tBLS? Any other choices? 
