@@ -96,7 +96,8 @@ On TON network, [BLS12-381 curve](https://docs.ton.org/v3/documentation/tvm/chan
 In BLS signature one needs to hash a transaaction/message into a point on the G1
 EC curve in order to verify. 
 
-For BN254 a reasonable choice is to hash the message using Keccak256 for x, 
+For BN254 a [reasonable choice](https://eips.ethereum.org/assets/eip-3068/weilsigs.pdf)
+is to hash the message using Keccak256 for x, 
 and find a y that satisfies the curve equation y^2 = x^3 +3. If no y exists, then
 increment x and try again. There is 50% chance each time to succeed. Practically
 20 max tries would be enough to cap the gas cost. The average tries should be 2. 
