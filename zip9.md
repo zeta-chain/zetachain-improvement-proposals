@@ -112,11 +112,6 @@ For BLS12-381 there is IETF RFC 9380
 that is supported everywehere where the BLS12-381 curve is supported. 
 The hash function will be provided as precompiles on as part of EIP-2537. 
 
-### Two curves, one key
-By using the same secret key (<=254bit) on the two curves one can save considerable amount
-of risks and signer activities when signers set changes. The downside is that
-using a BN254 key loses about 1 bit of entropy on BLS12-381 curve which is not
-significant. 
 
 ### Signature in G1
 BLS signature can be on either the G1 or G2, resulting in two flavors: 
