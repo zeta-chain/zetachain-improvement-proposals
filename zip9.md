@@ -145,7 +145,14 @@ The Distributed KeyGen (DKG) and KeySign protocol requires communication between
 Some kind of broadcast channel is required for DKG but not necessary for KeySign. 
 However for possible on-chain accoutability of signers broadcast channel via ZetaChain
 state machine would be idea, as all actions are recorded on-chain and can be automatically
-accounted and incentivized. 
+accounted and incentivized. On the other hand, having KeySign on ZetaChain means 
+each outbound transaction will require at least #signers amount of transactions in ZetaChain,
+therefore putting an upper limit on the outbound TPS to peak ZetaChain TPS/#signers. 
+
+An alternative to using the ZetaChain state machine as the broadcast channel is
+a custom p2p PubSub topic. The advantage is no overhead to the main ZeatChain network; 
+drawback is PubSub is best-effort and unreliable broadcast channel (no guarantee of
+delivery, no ordering, and no consensus that everyone got broadcasted the same message). 
 
 ## Backward/Forward Compatibility
 This is not backward compatible to ECDSA TSS. 
