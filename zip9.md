@@ -140,6 +140,13 @@ On SUI, cost is very low as the whole verificaiton is implemented natively.
 
 On TON, likely very low as the whole verification is implemented natively. 
 
+### Communication Channel: Broadcast channel with ZetaChain state machine
+The Distributed KeyGen (DKG) and KeySign protocol requires communication between signers; 
+Some kind of broadcast channel is required for DKG but not necessary for KeySign. 
+However for possible on-chain accoutability of signers broadcast channel via ZetaChain
+state machine would be idea, as all actions are recorded on-chain and can be automatically
+accounted and incentivized. 
+
 ## Backward/Forward Compatibility
 This is not backward compatible to ECDSA TSS. 
 
