@@ -12,6 +12,57 @@ a shorter block time.  There is precedence that a production Cosmos SDK based ch
 
 ## Mechanisms
 
+Traditionally the block time is controlled by the tendermint config files of the validators
+`.zetacored/data/config/config.toml`. An example configuration is as follows currently
+```
+#######################################################
+###         Consensus Configuration Options         ###
+#######################################################
+[consensus]
+
+wal_file = "data/cs.wal/wal"
+
+# How long we wait for a proposal block before prevoting nil
+timeout_propose = "3s"
+# How much timeout_propose increases with each round
+timeout_propose_delta = "500ms"
+# How long we wait after receiving +2/3 prevotes for “anything” (ie. not a single block or nil)
+timeout_prevote = "1s"
+# How much the timeout_prevote increases with each round
+timeout_prevote_delta = "500ms"
+# How long we wait after receiving +2/3 precommits for “anything” (ie. not a single block or nil)
+timeout_precommit = "1s"
+# How much the timeout_precommit increases with each round
+timeout_precommit_delta = "500ms"
+# How long we wait after committing a block, before starting on the new
+# height (this gives us a chance to receive some more precommits, even
+# though we already have +2/3).
+timeout_commit = "5s"
+
+# How many blocks to look back to check existence of the node's consensus votes before joining consensus
+# When non-zero, the node will panic upon restart
+# if the same consensus key was used to sign {double_sign_check_height} last blocks.
+# So, validators should stop the state machine, wait for some blocks, and then restart the state machine to avoid panic.
+double_sign_check_height = 0
+
+# Make progress as soon as we have all the precommits (as if TimeoutCommit = 0)
+skip_timeout_commit = false
+
+# EmptyBlocks mode and possible interval between empty blocks
+create_empty_blocks = true
+create_empty_blocks_interval = "0s"
+
+# Reactor sleep duration parameters
+peer_gossip_sleep_duration = "100ms"
+peer_query_maj23_sleep_duration = "2s"
+```
+
+The various timeouts control the best case block time (no new block can finalize before 5s timeout).
+To reduce the block time, one mechanism is to tune this parameter; however this must be done by
+all validators at the same time, otherwise the network behavior is hard to predict. 
+
+A better idea is to move the config to on-chain state parameters so that they can be changed
+by gov proposal and take effect uniformly across all validators and at upgrade time. 
 
 
 ## Impacts
