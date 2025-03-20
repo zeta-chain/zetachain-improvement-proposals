@@ -73,6 +73,7 @@ the ticker and interval parameters in zetaclient) with target block time.
 
 ### Components of `zetacore` that depends on the block time being around 6s
 - Emission module: fixed amount per block
+- Block Signing Window and Slashing params need to be adjusted to account for shorter blocktimes. 
 
 ### Components of `zetaclient` that depends on the block time being around 6s
 - Outbound scheduler interval--they are in unit of blocks, and calibrated for block time being 6s.
