@@ -64,6 +64,10 @@ all validators at the same time, otherwise the network behavior is hard to predi
 A better idea is to move the config to on-chain state parameters so that they can be changed
 by gov proposal and take effect uniformly across all validators and at upgrade time. 
 
+Furthermore, it would be prudent to reduce block time in steps gradually and observe effects for
+unknown and unforseeable issues, therefore it'll be great to include the target block time
+in the state updatable by gov proposal, and parameterize across the stack (most importantly
+the ticker and interval parameters in zetaclient) with target block time. 
 
 ## Impacts
 
