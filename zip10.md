@@ -1,10 +1,18 @@
 # ZIP 10: Reducing block time 
 
-## Summary
+## Summary and Motivation
 
-## Motivation
+For users that interact with ZetaChain on the Cosmos side or EVM side the main perceived
+latency comes from block time when chain is not congested.  Currently the block time is around 6s,
+and as ZetaChain uses Tendermint consensus which is 1-block finality, the latency of user
+transaction is around 6-12s. This perceived transaction latency can be reduced by having
+a shorter block time.  There is precedence that a production Cosmos SDK based chain can achieve
+~1.2s block time. 
+
 
 ## Mechanisms
+
+
 
 ## Impacts
 
