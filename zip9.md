@@ -175,6 +175,31 @@ It's likely some other EVM chains will adopt this EIP over time.
 As Ethereum deploys BLS12-381 precompiles I'd expect all other chains to support
 it some time including Solana. 
 
+## Impacts
+BLS signature is not EOA on any chains, and cannot be the account that submits tx and pay gas.
+Therefore a "relayer" is needed to submit the outbound transaction, similar to Solana and SUI cases. 
+As a result, a custom nonce must be present in the Gateway contract to prevent double processing
+on the zetaclient side. On the other hand, on EVM ECDSA TSS is used as EOA so nonce is handled by EVM runtime. 
+
+The following subsections discuss transitioning from ECDSA TSS to BLS TSS on the connected chains. Solana
+and SUI would be easy cases because the nonce is already handled in Gateway contracts. EVM will require
+more migrational efforts. 
+
+### Solana
+In `recover_and_verify_eth_address()` funciton
+https://github.com/zeta-chain/protocol-contracts-solana/blob/cf26580be4c337162be5aedc7cfeebbf94548644/programs/gateway/src/lib.rs#L929
+add another verifying function and signature format to accomondate BLS signature type. Otherwise the logic stays the same. 
+
+### Sui
+Similar to `withdraw_impl()` function, create an alternative function that accepts a BLS signature (on BLS12-381 curve) as parameter
+and verify it in the contract against the stored BLS pubkey in the gateway object. 
+
+### EVM
+In Gateway and ERC20Custody, create a `nonce` contract state variable, and in `withdraw` it accepts a nonce
+as parameter and verifies signature against a hash that includes this nonce. 
+
+However then there are two nonces on any given EVM chain: a ECDSA TSS nonce (EOA nonce, not in contract), 
+and a contract nonce.  These needs to be reconciled with regard to the chain parameters `nonce` on ZetaChain. 
 
 ## Test Cases
 
