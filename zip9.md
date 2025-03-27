@@ -1,6 +1,13 @@
-# ZIP 9: Threshold BLS Signature for TSS on Connected Chains
+---
+zip: 9
+title: Threshold BLS Signature for TSS on Connected Chains
+status: LastCall
+author: brewmaster012 
+created: 2025-03-01
+---
 
-## Simple Summary
+
+### Simple Summary
 ECDSA TSS is slow and requires synchronization of signers to keysign. 
 This ZIP proposes alternative TSS based on BLS signature scheme
 that promises orders of magnitute higher keysign throughput and lower latency, 
@@ -8,7 +15,7 @@ no signer synchrony requirement, straight-forward on-chain accounting
 of keysign participation, and much simpler signer set change. 
 
 
-## Abstract and Motivation
+### Abstract and Motivation
 ZetaChain relies on accounts on each of its connected chains to authenticate
 actions commanded by ZetaChain. To reduce single point of failure and improve
 trust via decentralization, the secret keys of external accounts are stored and
