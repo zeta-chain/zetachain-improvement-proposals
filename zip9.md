@@ -3,7 +3,7 @@ zip: 9
 title: Threshold BLS Signature for TSS on Connected Chains
 status: LastCall
 author: brewmaster012 
-created: 2025-03-01
+created: 2025-02-24
 ---
 
 
