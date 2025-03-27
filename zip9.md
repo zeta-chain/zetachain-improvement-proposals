@@ -187,8 +187,7 @@ On Solana BN254 curve: https://github.com/brewmaster012/solana-bls-poc
 
 On TON BLS12-381 curve: TBD
 
-On zetaclient side, the BN254 with the hash function patch:  https://github.com/brewmaster012/kyber
-Threshold BLS is also part of Kyber v4. 
+Threshold BLS Cryptography Library: https://github.com/zeta-chain/kyber/pull/3
 
 
 ## Implementation
