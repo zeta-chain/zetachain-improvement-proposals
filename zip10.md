@@ -1,4 +1,10 @@
-# ZIP 10: Reducing block time 
+---
+zip: 10
+title: Reducing block time
+author: brewmaster012
+status: Draft
+created: 2025-03-20
+---
 
 ## Summary and Motivation
 
